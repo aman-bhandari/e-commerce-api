@@ -22,7 +22,7 @@ app.use(morgan('tiny'))
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.status(200).send('e-commerce app')
+  res.send('e-commerce app')
 })
 app.use('/api/v1/auth', authRouter)
 
