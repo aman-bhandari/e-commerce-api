@@ -1,7 +1,7 @@
 const User = require('../models/User')
 const { StatusCodes } = require('http-status-codes')
 const customError = require('../errors')
-const jwt = require('jsonwebtoken')
+const utils = require('../utils')
 const register = async (req, res) => {
   const { email, name, password } = req.body
   let emailAllreadyExist = await User.findOne({ email })
@@ -11,7 +11,7 @@ const register = async (req, res) => {
   let role = firstUser ? 'admin' : 'user'
   const user = await User.create({ email, name, password, role })
   const tokenUser = { name: user.name, userId: user._id, role: user.role }
-  const token = jwt.sign(tokenUser, 'jwtSecret', { expiresIn: '30d' })
+  const token = utils.createJWT({ payload: tokenUser })
   res.status(StatusCodes.CREATED).json({ user: tokenUser, token })
 }
 const logIn = async (req, res) => {
