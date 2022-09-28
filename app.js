@@ -26,6 +26,7 @@ app.use(cookieParser())
 app.get('/', (req, res) => {
   res.send('e-commerce app')
 })
+
 app.use('/api/v1/auth', authRouter)
 
 app.use(notFoundMiddleware)
