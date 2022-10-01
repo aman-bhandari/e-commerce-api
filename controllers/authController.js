@@ -25,13 +25,16 @@ const logIn = async (req, res) => {
     throw new customError.UnauthenticatedError('Invalid Credentials')
   const tokenUser = { name: user.name, userId: user._id, role: user.role }
   attachCookiesToResponse({ res, user: tokenUser })
+
   res.status(StatusCodes.CREATED).json({ user: tokenUser })
 }
 const logOut = async (req, res) => {
-  res.cookie('token', 'logout', { httpOnly: true, expires: new Date(Date.now) })
-  res.status(StatusCodes.OK).json({ msg: 'User is logged out!' })
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now() + 1000),
+  })
+  res.status(StatusCodes.OK).json({ msg: 'user logged out!' })
 }
-
 module.exports = {
   register,
   logIn,
