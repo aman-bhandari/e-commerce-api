@@ -119,3 +119,14 @@
 
 - get user from req by authentication middleware
 - send respose with user 
+
+#### UpdateUserPassword
+
+- add authenticateUser middleware in the route
+- check for oldPassword and newPassword in the body
+- if one missing 400
+- look for user with req.user.userId
+- check if oldPassword matches with user.comparePassword
+- if no match 401
+- set user.password equal to newPassword
+- await user.save()
