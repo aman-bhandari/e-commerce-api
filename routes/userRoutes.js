@@ -14,7 +14,7 @@ const {
 router
   .route('/')
   .get(authenticateUser, authorisePermissions('admin', 'owner'), getAllUsers)
-router.route('/show-me').get(showCurrentUser)
+router.route('/show-me').get(authenticateUser, showCurrentUser)
 router.route('/update-user').patch(updateUser)
 router.route('/update-user-password').patch(updateUserPassword)
 router.route('/:id').get(authenticateUser, getSingleUser)

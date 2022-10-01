@@ -114,3 +114,8 @@
 #### Authenticate User Setup
 
 #### Authorize Permissions Setup including params
+
+#### showCurrentUser
+
+- get user from req by authentication middleware
+- send respose with user 
