@@ -6,7 +6,7 @@ const {
   showCurrentUser,
   updateUser,
   updateUserPassword,
-} = require('../controllers/userController')
+} = require('../controllers/user-controller')
 const {
   authenticateUser,
   authorisePermissions,
@@ -15,7 +15,7 @@ router
   .route('/')
   .get(authenticateUser, authorisePermissions('admin', 'owner'), getAllUsers)
 router.route('/show-me').get(authenticateUser, showCurrentUser)
-router.route('/update-user').patch(updateUser)
+router.route('/update-user').patch(authenticateUser, updateUser)
 router
   .route('/update-user-password')
   .patch(authenticateUser, updateUserPassword)

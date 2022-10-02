@@ -30,6 +30,8 @@ const userSchema = mongoose.Schema({
 })
 
 userSchema.pre('save', async function () {
+  //this check is to stop reshashing of password for user.save() if password is not changed, other fields are changed
+  if (!this.isModified('password')) return
   const salt = await bcrypt.genSalt(10)
   this.password = await bcrypt.hash(this.password, salt)
 })

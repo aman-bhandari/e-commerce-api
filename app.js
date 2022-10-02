@@ -13,8 +13,8 @@ const cookieParser = require('cookie-parser')
 const connectDB = require('./db/connect')
 
 //router
-const authRouter = require('./routes/authRoutes')
-const userRouter = require('./routes/userRoutes')
+const authRouter = require('./routes/auth-routes')
+const userRouter = require('./routes/user-routes')
 //middleware
 const notFoundMiddleware = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler')
