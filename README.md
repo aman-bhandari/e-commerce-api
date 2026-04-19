@@ -1,7 +1,5 @@
 # e-commerce-api
 
-> **Archived learning-era repo (2022).** Preserved as evidence of self-taught Node.js backend work during 2019-2022. Not maintained. For current work see [aman-bhandari](https://github.com/aman-bhandari).
-
 A REST API for an e-commerce backend: users, products, reviews, orders. Admin and regular-user role separation with JWT-based authentication over HTTP-only cookies.
 
 ## What's in it
@@ -45,11 +43,3 @@ npm start
 ```
 
 Node 16 required (pinned in `engines`).
-
-## Iteration history
-
-39 commits between 2022-09-27 and 2022-10-15 (~3 weeks of sustained iterative work — my most commit-dense repo from the self-taught period).
-
-## Why this is archived
-
-This repo is from the 2019-2022 self-taught period before I joined my current team. It was deployed to Heroku (now offline — Heroku's free tier was retired) and worked end to end. The code reflects what I knew at the time; current standards (see [aman-bhandari pinned repos](https://github.com/aman-bhandari)) look different. The repo is kept public and archived as evidence of the iterative backend work that bridged 2019-2022.
